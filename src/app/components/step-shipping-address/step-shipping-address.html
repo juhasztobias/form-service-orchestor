@@ -1,0 +1,28 @@
+<form [formGroup]="formService.form" class="step-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Dirección</mat-label>
+    <input matInput formControlName="address" placeholder="Ej: Calle Principal 123">
+    @if (formService.form.get('address')?.hasError('required')) {
+      <mat-error>La dirección es requerida.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ciudad</mat-label>
+    <input matInput formControlName="city" placeholder="Ej: Madrid">
+    @if (formService.form.get('city')?.hasError('required')) {
+      <mat-error>La ciudad es requerida.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Código Postal</mat-label>
+    <input matInput formControlName="zipCode" placeholder="Ej: 28001">
+    @if (formService.form.get('zipCode')?.hasError('required')) {
+      <mat-error>El código postal es requerido.</mat-error>
+    }
+    @if (formService.form.get('zipCode')?.hasError('pattern')) {
+      <mat-error>El código postal debe tener 5 dígitos.</mat-error>
+    }
+  </mat-form-field>
+</form>

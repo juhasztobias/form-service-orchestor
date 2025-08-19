@@ -1,0 +1,20 @@
+<form [formGroup]="formService.form" class="step-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="name" placeholder="Ej: Juan Pérez">
+    @if (formService.form.get('name')?.hasError('required')) {
+      <mat-error>El nombre es requerido.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Ej: juan.perez@example.com" type="email">
+    @if (formService.form.get('email')?.hasError('required')) {
+      <mat-error>El email es requerido.</mat-error>
+    }
+    @if (formService.form.get('email')?.hasError('email')) {
+      <mat-error>Por favor, introduce un email válido.</mat-error>
+    }
+  </mat-form-field>
+</form>

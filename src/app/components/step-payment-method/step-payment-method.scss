@@ -1,0 +1,48 @@
+.payment-methods-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+    color: #333;
+  }
+
+  .add-button {
+    transform: scale(0.8);
+  }
+}
+
+.payment-methods-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-card {
+  border: 1px solid #e0e0e0;
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .card-actions {
+      margin-left: auto;
+    }
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+.step-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

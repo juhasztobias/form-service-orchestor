@@ -1,0 +1,32 @@
+<div class="form-container">
+  <div class="step-indicator">
+    <h2>Paso {{ orchestrator.step$ | async }} de 3</h2>
+    <div class="step-titles">
+      @switch (orchestrator.step$ | async) {
+        @case (1) { <h3>Datos Personales</h3> }
+        @case (2) { <h3>Dirección de Envío</h3> }
+        @case (3) { <h3>Método de Pago</h3> }
+      }
+    </div>
+  </div>
+
+  <div [ngSwitch]="orchestrator.step$ | async">
+    <app-step-client-data *ngSwitchCase="1"></app-step-client-data>
+    <app-step-shipping-address *ngSwitchCase="2"></app-step-shipping-address>
+    <app-step-payment-method *ngSwitchCase="3"></app-step-payment-method>
+  </div>
+
+  <div class="navigation-buttons">
+    <button mat-stroked-button (click)="orchestrator.goToPreviousStep()" [disabled]="(orchestrator.step$ | async) === 1">
+      Anterior
+    </button>
+    <button mat-flat-button color="primary" (click)="orchestrator.goToNextStep()" 
+            [disabled]="(orchestrator.isCurrentStepValid$ | async) === false || (orchestrator.step$ | async) === 3">
+      Siguiente
+    </button>
+    <button mat-flat-button color="accent" (click)="orchestrator.submit()" 
+            [disabled]="(orchestrator.isFormValid$ | async) === false || (orchestrator.step$ | async) !== 3">
+      Enviar
+    </button>
+  </div>
+</div>

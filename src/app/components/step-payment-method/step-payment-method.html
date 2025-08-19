@@ -1,0 +1,61 @@
+<form [formGroup]="formService.form" class="step-form">
+  <div class="payment-methods-header">
+    <h3>Métodos de Pago</h3>
+    <button mat-fab color="primary" (click)="addPaymentMethod()" type="button" class="add-button">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div formArrayName="paymentMethods" class="payment-methods-container">
+    @for (paymentMethod of formService.paymentMethodsArray.controls; track $index; let i = $index) {
+      <mat-card class="payment-card">
+        <mat-card-header>
+          <mat-card-title>Método de Pago {{ i + 1 }}</mat-card-title>
+          <div class="card-actions">
+            @if (formService.paymentMethodsArray.length > 1) {
+              <button mat-icon-button color="warn" (click)="removePaymentMethod(i)" type="button">
+                <mat-icon>delete</mat-icon>
+              </button>
+            }
+          </div>
+        </mat-card-header>
+        
+        <mat-card-content [formGroupName]="i">
+          <mat-form-field appearance="fill">
+            <mat-label>Tipo de Tarjeta</mat-label>
+            <mat-select formControlName="cardType">
+              <mat-option value="credit">Tarjeta de Crédito</mat-option>
+              <mat-option value="debit">Tarjeta de Débito</mat-option>
+              <mat-option value="prepaid">Tarjeta Prepagada</mat-option>
+            </mat-select>
+            @if (formService.getPaymentMethodAt(i).get('cardType')?.hasError('required')) {
+              <mat-error>El tipo de tarjeta es requerido.</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Número de Tarjeta</mat-label>
+            <input matInput formControlName="cardNumber" placeholder="1234567890123456" maxlength="16">
+            @if (formService.getPaymentMethodAt(i).get('cardNumber')?.hasError('required')) {
+              <mat-error>El número de tarjeta es requerido.</mat-error>
+            }
+            @if (formService.getPaymentMethodAt(i).get('cardNumber')?.hasError('pattern')) {
+              <mat-error>El número de tarjeta debe tener 16 dígitos.</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Fecha de Expiración</mat-label>
+            <input matInput formControlName="expirationDate" placeholder="MM/AA" maxlength="5">
+            @if (formService.getPaymentMethodAt(i).get('expirationDate')?.hasError('required')) {
+              <mat-error>La fecha de expiración es requerida.</mat-error>
+            }
+            @if (formService.getPaymentMethodAt(i).get('expirationDate')?.hasError('pattern')) {
+              <mat-error>Formato inválido. Use MM/AA.</mat-error>
+            }
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</form>
