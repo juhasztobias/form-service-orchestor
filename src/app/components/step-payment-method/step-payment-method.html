@@ -7,7 +7,7 @@
   </div>
 
   <div formArrayName="paymentMethods" class="payment-methods-container">
-    @for (paymentMethod of formService.paymentMethodsArray.controls; track $index; let i = $index) {
+    @for (paymentMethod of formService.paymentMethodsArray.controls; track paymentMethod.get('id')?.value; let i = $index) {
       <mat-card class="payment-card">
         <mat-card-header>
           <mat-card-title>Método de Pago {{ i + 1 }}</mat-card-title>

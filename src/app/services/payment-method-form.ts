@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Injectable()
 export class PaymentMethodFormService {
   public readonly form: FormGroup;
+  private nextId = 1;
   
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -19,11 +20,13 @@ export class PaymentMethodFormService {
   }
 
   createPaymentMethodGroup(): FormGroup {
-    return this.fb.group({
+    const group = this.fb.group({
+      id: [this.nextId++], // ID único para tracking
       cardNumber: ['', [Validators.required, Validators.pattern('^[0-9]{16}$')]],
       expirationDate: ['', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/?([0-9]{2})$')]],
-      cardType: ['credit', Validators.required] // Agregando tipo de tarjeta
+      cardType: ['credit', Validators.required]
     });
+    return group;
   }
 
   addPaymentMethod(): void {
