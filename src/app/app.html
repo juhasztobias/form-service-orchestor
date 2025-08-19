@@ -182,8 +182,20 @@
   }
 </style>
 
-<main class="main">
-  <app-main-form />
-</main>
+<nav class="navigation">
+  <div class="nav-content">
+    <h1>Form Service Demo</h1>
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Formulario Completo
+      </a>
+      <a routerLink="/quick-register" routerLinkActive="active">
+        Registro Rápido
+      </a>
+    </div>
+  </div>
+</nav>
 
-<router-outlet />
+<main class="main">
+  <router-outlet />
+</main>

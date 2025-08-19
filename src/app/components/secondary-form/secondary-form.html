@@ -1,0 +1,22 @@
+<div class="form-container">
+  <div class="step-indicator">
+    <h2>Registro Rápido</h2>
+    <h3>Datos Personales</h3>
+    <div class="quick-register-info">
+      <p><small>Solo necesitamos tu nombre y email para comenzar</small></p>
+    </div>
+  </div>
+
+  <app-step-client-data></app-step-client-data>
+
+  <div class="navigation-buttons">
+    <button mat-stroked-button (click)="goToMainForm()">
+      Formulario Completo
+    </button>
+    <button mat-flat-button color="primary" 
+            (click)="onSubmit()" 
+            [disabled]="!isFormValid">
+      Enviar
+    </button>
+  </div>
+</div>

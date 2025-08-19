@@ -8,6 +8,9 @@
         @case (3) { <h3>Método de Pago</h3> }
       }
     </div>
+    <div class="quick-register-link">
+      <p><small>¿Solo necesitas registrarte rápidamente? <a routerLink="/quick-register">Prueba nuestro registro rápido</a></small></p>
+    </div>
   </div>
 
   <div [ngSwitch]="orchestrator.step$ | async">
