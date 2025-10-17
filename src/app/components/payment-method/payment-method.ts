@@ -6,10 +6,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { PaymentMethodFormService } from '../../services/payment-method-form';
+import { PaymentMethodFormService } from './payment-method.service';
 
 @Component({
-  selector: 'app-step-payment-method',
+  selector: 'app-payment-method',
   standalone: true,
   imports: [
     ReactiveFormsModule, 
@@ -20,8 +20,8 @@ import { PaymentMethodFormService } from '../../services/payment-method-form';
     MatIconModule,
     MatCardModule
   ],
-  templateUrl: './step-payment-method.html',
-  styleUrl: './step-payment-method.scss'
+  templateUrl: './payment-method.html',
+  styleUrl: './payment-method.scss'
 })
 export class StepPaymentMethodComponent {
   public formService = inject(PaymentMethodFormService);

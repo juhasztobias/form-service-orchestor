@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { ClientDataFormService } from '../../services/client-data-form';
-import { StepClientDataComponent } from '../step-client-data/step-client-data';
+import { StepClientDataComponent } from '../client-data/client-data';
+import { ClientDataFormService } from '../client-data/client-data.service';
 
 @Component({
   selector: 'app-secondary-form',

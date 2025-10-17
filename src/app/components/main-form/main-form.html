@@ -14,9 +14,9 @@
   </div>
 
   <div [ngSwitch]="orchestrator.step$ | async">
-    <app-step-client-data *ngSwitchCase="1"></app-step-client-data>
-    <app-step-shipping-address *ngSwitchCase="2"></app-step-shipping-address>
-    <app-step-payment-method *ngSwitchCase="3"></app-step-payment-method>
+    <app-client-data *ngSwitchCase="1"></app-client-data>
+    <app-shipping-address *ngSwitchCase="2"></app-shipping-address>
+    <app-payment-method *ngSwitchCase="3"></app-payment-method>
   </div>
 
   <div class="navigation-buttons">
