@@ -2,9 +2,9 @@ import { Injectable, inject } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject, combineLatest, of } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
-import { ClientDataFormService } from '../client-data/client-data.service';
-import { PaymentMethodFormService } from '../payment-method/payment-method.service';
-import { ShippingAddressFormService } from '../shipping-address/shipping-address.service';
+import { ClientDataFormService } from '../steps/client-data/client-data.service';
+import { PaymentMethodFormService } from '../steps/payment-method/payment-method.service';
+import { ShippingAddressFormService } from '../steps/shipping-address/shipping-address.service';
 
 @Injectable()
 export class FormOrchestratorService {

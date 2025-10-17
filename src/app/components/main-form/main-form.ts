@@ -2,12 +2,12 @@ import { AsyncPipe, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { StepClientDataComponent } from '../client-data/client-data';
-import { ClientDataFormService } from '../client-data/client-data.service';
-import { StepPaymentMethodComponent } from '../payment-method/payment-method';
-import { PaymentMethodFormService } from '../payment-method/payment-method.service';
-import { StepShippingAddressComponent } from '../shipping-address/shipping-address';
-import { ShippingAddressFormService } from '../shipping-address/shipping-address.service';
+import { StepClientDataComponent } from '../steps/client-data/client-data';
+import { ClientDataFormService } from '../steps/client-data/client-data.service';
+import { StepPaymentMethodComponent } from '../steps/payment-method/payment-method';
+import { PaymentMethodFormService } from '../steps/payment-method/payment-method.service';
+import { StepShippingAddressComponent } from '../steps/shipping-address/shipping-address';
+import { ShippingAddressFormService } from '../steps/shipping-address/shipping-address.service';
 import { FormOrchestratorService } from './main-form.service';
 
 @Component({
